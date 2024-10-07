@@ -11,9 +11,11 @@ body {
     background-color: #121212;
     color: #e0e0e0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 140vh;
+    gap: 3%;
 }
 
 h1 {
@@ -33,7 +35,38 @@ h1 {
     width: 90%;
     max-width: 400px;
     animation: fadeIn 2s ease-in-out;
+    overflow-y:auto;
 }
+
+.container2 {
+    background-color: #1F1F1F;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    text-align: left;
+    width: 90%;
+    max-width: 400px;
+    animation: fadeIn 2s ease-in-out;
+    overflow-y: auto;
+    color: #f0f0f0; /* Light text color for readability */
+    font-family: 'Arial', sans-serif; /* Simple, clean font */
+}
+
+/* Paragraph Styling */
+.container2 p {
+    margin-bottom: 1.5rem; /* Spacing between paragraphs */
+    line-height: 1.6; /* Improved line spacing for readability */
+    font-size: 1rem; /* Default font size for the paragraph text */
+}
+
+/* Optional: Add more styling for headings, bold, etc. */
+.container2 h2, .container2 h3 {
+    color: #ffffff; /* Light color for headers */
+    margin-bottom: 1rem; /* Spacing after headings */
+    font-size: 1.25rem; /* Increase font size for headers */
+    font-weight: bold;
+}
+
 
 /* Form Styles */
 .text {
@@ -126,11 +159,19 @@ button:hover {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+
+    body{
+        height: 900px;
+    }
     h1 {
         font-size: 1.5rem;
     }
 
     .container {
+        width: 95%;
+    }
+
+    .container2 {
         width: 95%;
     }
 
