@@ -40,6 +40,22 @@ h1 {
     margin-bottom: 1.5rem;
 }
 
+.decoding-animation::after {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    animation: dots 1.5s steps(5, end) infinite;
+}
+
+@keyframes dots {
+    0% { content: ''; }
+    20% { content: '.'; }
+    40% { content: '..'; }
+    60% { content: '...'; }
+    80% { content: '....'; }
+    100% { content: '.....'; }
+}
+
 label {
     display: block;
     font-size: 1rem;

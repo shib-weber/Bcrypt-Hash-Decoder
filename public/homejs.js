@@ -11,7 +11,7 @@ document.querySelector('#checker').addEventListener('submit',async (e)=>{
 
 
     function* generateAlphanumericPermutations(length) {
-        const chars = '1234567890';
+        const chars = '1234567890abcdefghijklmopqrstuvwxyzABCDEFGHIJKLMOPQRSTUVWXYZ';
         const n = chars.length;
     
         const indices = Array(length).fill(0); // Starting with first combination
@@ -36,31 +36,42 @@ document.querySelector('#checker').addEventListener('submit',async (e)=>{
             }
         }
     }
-    
-    const generator = generateAlphanumericPermutations(3);
-    for (let value of generator) {
-        const response= await fetch('/check',{
-            method:'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({value,hashedt})
-        })
 
-        const result= await response.json()
-        console.log(result)
-    
-        if(result ==='not verified'){
-            document.querySelector('.result').innerHTML='Decoding PLease Wait...'
-        }
-        else{
-            document.querySelector('.result').innerHTML='The Plain Text is '+ result
+    let flag=true
+    for(let i= 0;i<=10;i++){
+        if(flag==false){
             button.disabled = false;
             button.innerHTML = 'Decode';
-            break
+            break;
+        }
+        
+        const generator = generateAlphanumericPermutations(i);
+        for (let value of generator) {
+            const response= await fetch('/check',{
+                method:'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({value,hashedt})
+            })
+    
+            const result= await response.json()
+            console.log(result)
+        
+            if(result ==='not verified'){
+                document.querySelector('.result').innerHTML = 'Decoding Please Wait';
+                document.querySelector('.result').classList.add('decoding-animation');
+                button.disabled = true;
+                button.innerHTML = 'Processing...';
+            }
+            else{
+                document.querySelector('.result').innerHTML='The Plain Text is '+ result
+                document.querySelector('.result').classList.remove('decoding-animation');
+                flag=false;
+                break
+            }
         }
     }
-
     })
     
 
