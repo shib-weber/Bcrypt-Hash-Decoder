@@ -37,7 +37,7 @@ document.querySelector('#checker').addEventListener('submit',async (e)=>{
         }
     }
     
-    const generator = generateAlphanumericPermutations(8);
+    const generator = generateAlphanumericPermutations(3);
     for (let value of generator) {
         const response= await fetch('/check',{
             method:'POST',
@@ -51,10 +51,12 @@ document.querySelector('#checker').addEventListener('submit',async (e)=>{
         console.log(result)
     
         if(result ==='not verified'){
-            document.querySelector('.result').innerHTML='Processing...'
+            document.querySelector('.result').innerHTML='Decoding PLease Wait...'
         }
         else{
-            document.querySelector('.result').innerHTML='Your Password is '+ result
+            document.querySelector('.result').innerHTML='The Plain Text is '+ result
+            button.disabled = false;
+            button.innerHTML = 'Decode';
             break
         }
     }

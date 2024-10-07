@@ -15,8 +15,6 @@ router.post('/check',async(req,res)=>{
     const ht= data.hashedt
     const hashc=await bcrypt.compare(pt,ht)
 
-    
-    
     if(hashc){
         res.json(pt)
     }
