@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HashDecoder</title>
+    <link rel="stylesheet" href="./homest.css">
 </head>
 <body>
-    Welcome to Hash Decoder
-    <form id="checker">
-        <div class="text">
-            <label for="hashed">Hashed Text</label>
-            <input type="text" id="hashedt" name="hashedtext" required>
-        </div>
-        <button type="submit">Verify</button>
-    </form>
-
-    <div class="result"> Waiting ...</div>
-
+    <div class="container">
+        <h1>Welcome to Hash Decoder</h1>
+        <form id="checker" class="form-container">
+            <div class="text">
+                <label for="hashed">Hashed Text</label>
+                <input type="text" id="hashedt" name="hashedtext" placeholder="Enter hashed text" required>
+            </div>
+            <button type="submit" id="verifyButton">Decode</button>
+        </form>
+        <div class="result">Waiting...</div>
+    </div>
+    
     <script src="./homejs.js"></script>
 </body>
 </html>

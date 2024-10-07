@@ -1,5 +1,11 @@
+const button = document.getElementById('verifyButton');
 document.querySelector('#checker').addEventListener('submit',async (e)=>{
     e.preventDefault();
+
+    button.disabled = true;
+    button.innerHTML = 'Processing...';
+
+
     //const plaint=document.querySelector('#plaint').value
     const hashedt =document.querySelector('#hashedt').value
 
@@ -24,6 +30,8 @@ document.querySelector('#checker').addEventListener('submit',async (e)=>{
             // If all indices are 0 again, we've cycled through all permutations
             if (i < 0) {
                 document.querySelector('.result').innerHTML='Not a correct Hash'
+                button.disabled = false;
+                button.innerHTML = 'Decode';
                 break;
             }
         }
