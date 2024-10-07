@@ -38,7 +38,7 @@ document.querySelector('#checker').addEventListener('submit',async (e)=>{
     }
 
     let flag=true
-    for(let i= 0;i<=10;i++){
+    for(let i= 1;i<=10;i++){
         if(flag==false){
             button.disabled = false;
             button.innerHTML = 'Decode';
